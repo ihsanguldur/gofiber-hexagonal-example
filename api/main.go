@@ -1,0 +1,17 @@
+package main
+
+import (
+	"github.com/gofiber/fiber/v2"
+	"log"
+)
+
+func main() {
+
+	app := fiber.New(fiber.Config{})
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("merhaba")
+	})
+
+	log.Fatal(app.Listen(":8081"))
+}
