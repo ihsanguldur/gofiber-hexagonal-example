@@ -5,11 +5,14 @@ import (
 	"log"
 	"weatherApp/api/database"
 	"weatherApp/api/routes"
+	"weatherApp/api/utils"
 )
 
 func main() {
 
-	app := fiber.New(fiber.Config{})
+	app := fiber.New(fiber.Config{
+		ErrorHandler: utils.ErrorHandler,
+	})
 
 	database.Connect()
 	routes.SetupRoutes(app)
