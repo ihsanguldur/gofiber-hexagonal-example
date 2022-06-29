@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"log"
 	"weatherApp/api/database"
+	"weatherApp/api/routes"
 )
 
 func main() {
@@ -11,10 +12,7 @@ func main() {
 	app := fiber.New(fiber.Config{})
 
 	database.Connect()
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("merhaba")
-	})
+	routes.SetupRoutes(app)
 
 	log.Fatal(app.Listen(":8080"))
 }

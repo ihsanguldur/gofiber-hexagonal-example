@@ -22,13 +22,11 @@ func Connect() {
 	if err != nil {
 		log.Fatal("Error While Connect Database.")
 	}
-
 	fmt.Println("Connection Opened to Database.")
 
 	err = DB.AutoMigrate(&entities.User{})
 	if err != nil {
 		log.Fatal("Error While Migrating.")
 	}
-
 	fmt.Println("Database Migrated.")
 }
