@@ -7,7 +7,7 @@ import (
 )
 
 func Config(key string) string {
-	if err := godotenv.Load("../.env"); err != nil {
+	if err := godotenv.Load(); err != nil {
 		log.Fatal("Can not load .env file.")
 	}
 
